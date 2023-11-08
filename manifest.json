@@ -1,27 +1,20 @@
 {
-  "name": "Fresh Chrome Extension",
-  "description": "Fully functional, useful bare minimum Google Chrome extension boilerplate [Manifest V3].",
-  "homepage_url": "https://github.com/llagerlof/fresh-chrome-extension",
-  "version": "2.0.0",
+  "name": "Youtube Playlist Times",
+  "description": "Display the total duration of a youtube playlist, which is the sum of all the videos in that playlist.",
+  "homepage_url": "https://msnadeem.com/",
+  "version": "1.0.0",
   "manifest_version": 3,
   "action": {
-    "default_title": "execute.js will run (watch the Chrome DevTools' console)"
+    "default_title": "Youtube Playlist Times"
   },
   "content_scripts": [
     {
-      "run_at" : "document_start",
-      "js": ["before.js"],
+      "run_at": "document_idle",
+      "js": [
+        "content.js"
+      ],
       "matches": [
-        "https://*/*",
-        "http://*/*"
-      ]
-    },
-    {
-      "run_at" : "document_idle",
-      "js": ["after.js"],
-      "matches": [
-        "https://*/*",
-        "http://*/*"
+        "https://*.youtube.com/*"
       ]
     }
   ],
@@ -33,7 +26,6 @@
     "scripting"
   ],
   "host_permissions": [
-    "https://*/*",
-    "http://*/*"
+    "https://*.youtube.com/*"
   ]
 }
